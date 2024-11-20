@@ -1,0 +1,8 @@
+Model Information:
+* title:	Car_lowpoly
+* source:	https://sketchfab.com/3d-models/car-lowpoly-141c3279892b429ba42c0b98ba88ae6b
+* author:	saeb_gh (https://sketchfab.com/saeb_gh)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
