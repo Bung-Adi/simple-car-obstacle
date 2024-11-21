@@ -1,21 +1,51 @@
-import React from 'react'
+import Reac, { useState, useEffect } from 'react';
+import Controls from '../helper/Control';
 
-const GameUIOverlay = ({ score, onMoveLeft, onMoveRight }) => {
+const GameUIOverlay = ({ score, position }) => {
+  const [showWelcomeText, setShowWelcomeText] = useState(true);
+
+  const onMoveLeft = () => {
+    position(currentPosition => 
+      Math.min(currentPosition + 1, 5)
+    );
+  };
+
+  const onMoveRight = () => {
+    position(currentPosition => 
+      Math.max(currentPosition - 1, -5)
+    );
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcomeText(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className='ui'>
-      <div className='score'>
-        Score: {score}
+    <>
+      {showWelcomeText && (
+        <div className='welcome-overlay'>
+          <div className='welcome-text'>
+            Get Ready!
+            <br />
+            Dodge the Boxes
+          </div>
+          <div className="welcome-hint">
+            <p>U can use keyboard arrow btw</p>
+          </div>
+        </div>
+      )}
+      <div className='ui'>
+        <div className='score'>
+          Score: {score}
+        </div>
+        <Controls onMoveLeft={onMoveLeft} onMoveRight={onMoveRight} />
       </div>
-      <div className='button-area'>
-        <button onClick={onMoveLeft} >
-          Left
-        </button>
-        <button onClick={onMoveRight} >
-          Right
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
-export default GameUIOverlay
+export default GameUIOverlay;

@@ -27,7 +27,7 @@ function GameLogic({
       
       // Collision detection (touch)
       if (isColliding) {
-        console.log('Collision detected!') // Debug log
+        // console.log('Collision detected!') // Debug log
         setScore(prevScore => prevScore - 10)
         
         // Remove the box after collision
@@ -38,7 +38,7 @@ function GameLogic({
       
       // Passing box detection (scoring)
       if (box.position.z < -6) {
-        console.log('Box passed!') // Debug log
+        // console.log('Box passed!') // Debug log
         setScore(prevScore => prevScore + 1)
         
         // Remove the passed box
